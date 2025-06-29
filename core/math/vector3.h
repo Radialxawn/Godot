@@ -161,6 +161,13 @@ struct [[nodiscard]] Vector3 {
 	bool is_zero_approx() const;
 	bool is_finite() const;
 
+	/* Extensions */
+	Vector2 xy() const;
+	Vector2 xz() const;
+	Vector2 yx() const;
+	Vector2 yz() const;
+	Vector2 zx() const;
+	Vector2 zy() const;
 	/* Operators */
 
 	constexpr Vector3 &operator+=(const Vector3 &p_v);

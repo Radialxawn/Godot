@@ -2012,6 +2012,8 @@ static void _register_variant_builtin_methods_math() {
 	bind_method(Vector2, maxf, sarray("with"), varray());
 
 	bind_static_method(Vector2, from_angle, sarray("angle"), varray());
+	/* Vector2 Extensions */
+	bind_method(Vector2, normalize, sarray(), varray());
 
 	/* Vector2i */
 
@@ -2119,6 +2121,14 @@ static void _register_variant_builtin_methods_math() {
 	bind_method(Vector3, maxf, sarray("with"), varray());
 	bind_static_method(Vector3, octahedron_decode, sarray("uv"), varray());
 
+	/* Vector3 Extensions */
+	bind_method(Vector3, normalize, sarray(), varray());
+	bind_method(Vector3, xy, sarray(), varray());
+	bind_method(Vector3, xz, sarray(), varray());
+	bind_method(Vector3, yx, sarray(), varray());
+	bind_method(Vector3, yz, sarray(), varray());
+	bind_method(Vector3, zx, sarray(), varray());
+	bind_method(Vector3, zy, sarray(), varray());
 	/* Vector3i */
 
 	bind_method(Vector3i, min_axis_index, sarray(), varray());

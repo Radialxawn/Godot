@@ -175,3 +175,11 @@ Vector3::operator String() const {
 Vector3::operator Vector3i() const {
 	return Vector3i(x, y, z);
 }
+
+/* Extensions */
+Vector2 Vector3::xy() const { return Vector2(x, y); }
+Vector2 Vector3::xz() const { return Vector2(x, z); }
+Vector2 Vector3::yx() const { return Vector2(y, x); }
+Vector2 Vector3::yz() const { return Vector2(y, z); }
+Vector2 Vector3::zx() const { return Vector2(z, x); }
+Vector2 Vector3::zy() const { return Vector2(z, y); }
