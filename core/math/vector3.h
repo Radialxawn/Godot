@@ -168,6 +168,10 @@ struct [[nodiscard]] Vector3 {
 	Vector2 yz() const;
 	Vector2 zx() const;
 	Vector2 zy() const;
+	Vector3 set_x(real_t p_value) const;
+	Vector3 set_y(real_t p_value) const;
+	Vector3 set_z(real_t p_value) const;
+	_FORCE_INLINE_ Vector3 to(const Vector3 &p_to) const;
 	/* Operators */
 
 	constexpr Vector3 &operator+=(const Vector3 &p_v);
@@ -331,6 +335,11 @@ real_t Vector3::signed_angle_to(const Vector3 &p_to, const Vector3 &p_axis) cons
 Vector3 Vector3::direction_to(const Vector3 &p_to) const {
 	Vector3 ret(p_to.x - x, p_to.y - y, p_to.z - z);
 	ret.normalize();
+	return ret;
+}
+
+Vector3 Vector3::to(const Vector3 &p_to) const { /* Extension */
+	Vector3 ret(p_to.x - x, p_to.y - y, p_to.z - z);
 	return ret;
 }
 

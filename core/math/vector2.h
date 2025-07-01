@@ -132,6 +132,12 @@ struct [[nodiscard]] Vector2 {
 	bool is_same(const Vector2 &p_v) const;
 	bool is_zero_approx() const;
 	bool is_finite() const;
+	
+	/* Extensions */
+	Vector2 set_x(real_t p_value) const;
+	Vector2 set_y(real_t p_value) const;
+	_FORCE_INLINE_ Vector2 to(const Vector2 &p_to) const;
+	/* Extensions */
 
 	constexpr Vector2 operator+(const Vector2 &p_v) const;
 	constexpr void operator+=(const Vector2 &p_v);
@@ -304,6 +310,11 @@ Vector2 Vector2::bezier_derivative(const Vector2 &p_control_1, const Vector2 &p_
 Vector2 Vector2::direction_to(const Vector2 &p_to) const {
 	Vector2 ret(p_to.x - x, p_to.y - y);
 	ret.normalize();
+	return ret;
+}
+
+Vector2 Vector2::to(const Vector2 &p_to) const { /* Extension */
+	Vector2 ret(p_to.x - x, p_to.y - y);
 	return ret;
 }
 

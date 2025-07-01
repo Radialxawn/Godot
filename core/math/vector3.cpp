@@ -183,3 +183,18 @@ Vector2 Vector3::yx() const { return Vector2(y, x); }
 Vector2 Vector3::yz() const { return Vector2(y, z); }
 Vector2 Vector3::zx() const { return Vector2(z, x); }
 Vector2 Vector3::zy() const { return Vector2(z, y); }
+Vector3 Vector3::set_x(real_t p_value) const {
+	Vector3 v = *this;
+	v.x = p_value;
+	return v;
+}
+Vector3 Vector3::set_y(real_t p_value) const {
+	Vector3 v = *this;
+	v.y = p_value;
+	return v;
+}
+Vector3 Vector3::set_z(real_t p_value) const {
+	Vector3 v = *this;
+	v.z = p_value;
+	return v;
+}

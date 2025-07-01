@@ -2014,6 +2014,9 @@ static void _register_variant_builtin_methods_math() {
 	bind_static_method(Vector2, from_angle, sarray("angle"), varray());
 	/* Vector2 Extensions */
 	bind_method(Vector2, normalize, sarray(), varray());
+	bind_method(Vector2, set_x, sarray("value"), varray());
+	bind_method(Vector2, set_y, sarray("value"), varray());
+	bind_method(Vector2, to, sarray("to"), varray());
 
 	/* Vector2i */
 
@@ -2129,6 +2132,10 @@ static void _register_variant_builtin_methods_math() {
 	bind_method(Vector3, yz, sarray(), varray());
 	bind_method(Vector3, zx, sarray(), varray());
 	bind_method(Vector3, zy, sarray(), varray());
+	bind_method(Vector3, set_x, sarray("value"), varray());
+	bind_method(Vector3, set_y, sarray("value"), varray());
+	bind_method(Vector3, set_z, sarray("value"), varray());
+	bind_method(Vector3, to, sarray("to"), varray());
 	/* Vector3i */
 
 	bind_method(Vector3i, min_axis_index, sarray(), varray());

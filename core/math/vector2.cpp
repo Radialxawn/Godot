@@ -213,3 +213,15 @@ Vector2::operator String() const {
 Vector2::operator Vector2i() const {
 	return Vector2i(x, y);
 }
+
+/* Extensions */
+Vector2 Vector2::set_x(real_t p_value) const {
+	Vector2 v = *this;
+	v.x = p_value;
+	return v;
+}
+Vector2 Vector2::set_y(real_t p_value) const {
+	Vector2 v = *this;
+	v.y = p_value;
+	return v;
+}

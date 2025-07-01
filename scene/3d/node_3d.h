@@ -322,6 +322,7 @@ public:
 
 	void look_at(const Vector3 &p_target, const Vector3 &p_up = Vector3(0, 1, 0), bool p_use_model_front = false);
 	void look_at_from_position(const Vector3 &p_pos, const Vector3 &p_target, const Vector3 &p_up = Vector3(0, 1, 0), bool p_use_model_front = false);
+	void look_direction(const Vector3 &p_direction, const Vector3 &p_up = Vector3(0, 1, 0), bool p_use_model_front = false); /* Extension */
 
 	Vector3 to_local(Vector3 p_global) const;
 	Vector3 to_global(Vector3 p_local) const;

@@ -1233,6 +1233,18 @@ void Node3D::look_at_from_position(const Vector3 &p_pos, const Vector3 &p_target
 	set_scale(original_scale);
 }
 
+void Node3D::look_direction(const Vector3 &p_direction, const Vector3 &p_up, bool p_use_model_front) { /* Extension */
+	ERR_THREAD_GUARD;
+	ERR_FAIL_COND_MSG(!is_inside_tree(), "Node not inside tree. Use look_at_from_position() instead.");
+	ERR_FAIL_COND_MSG(p_direction.is_zero_approx(), "The direction vector can't be zero, look_direction() failed.");
+	ERR_FAIL_COND_MSG(p_up.is_zero_approx(), "The up vector can't be zero, look_direction() failed.");
+	Vector3 origin = get_global_transform().origin;
+	Basis look_direction_basis = Basis::looking_at(p_direction, p_up, p_use_model_front);
+	Vector3 original_scale = get_scale();
+	set_global_transform(Transform3D(look_direction_basis, origin));
+	set_scale(original_scale);
+}
+
 Vector3 Node3D::to_local(Vector3 p_global) const {
 	ERR_READ_THREAD_GUARD_V(Vector3());
 	return get_global_transform().affine_inverse().xform(p_global);
@@ -1479,6 +1491,7 @@ void Node3D::_bind_methods() {
 
 	ClassDB::bind_method(D_METHOD("look_at", "target", "up", "use_model_front"), &Node3D::look_at, DEFVAL(Vector3(0, 1, 0)), DEFVAL(false));
 	ClassDB::bind_method(D_METHOD("look_at_from_position", "position", "target", "up", "use_model_front"), &Node3D::look_at_from_position, DEFVAL(Vector3(0, 1, 0)), DEFVAL(false));
+	ClassDB::bind_method(D_METHOD("look_direction", "direction", "up", "use_model_front"), &Node3D::look_direction, DEFVAL(Vector3(0, 1, 0)), DEFVAL(false));
 
 	ClassDB::bind_method(D_METHOD("to_local", "global_point"), &Node3D::to_local);
 	ClassDB::bind_method(D_METHOD("to_global", "local_point"), &Node3D::to_global);
