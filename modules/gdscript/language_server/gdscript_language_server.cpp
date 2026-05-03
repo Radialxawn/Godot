@@ -97,7 +97,7 @@ void GDScriptLanguageServer::start() {
 		EditorNode::get_log()->add_message("--- Failed to start GDScript language server on port " + itos(port) + ": " + error_names[status] + " ---", EditorLog::MSG_TYPE_EDITOR);
 		return;
 	}
-	EditorNode::get_log()->add_message("--- GDScript language server started on port " + itos(port) + " ---", EditorLog::MSG_TYPE_EDITOR);
+	//EditorNode::get_log()->add_message("--- GDScript language server started on port " + itos(port) + " ---", EditorLog::MSG_TYPE_EDITOR);
 	if (use_thread) {
 		thread_running = true;
 		thread.start(GDScriptLanguageServer::thread_main, this);
